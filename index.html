@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBGC World Map</title>
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <div class="sidebar">
+
+        <img src="images/title.png" alt="title" class="title-image"><br>
+
+        <div class="button-container">
+            <button id="showAllButton"><img class="markerButton" src="images/buttons/showall.png">SHOW ALL<span></span></button>
+            <button id="hideAllButton"><img class="markerButton" src="images/buttons/hideall.png">HIDE ALL<span></span></button>
+        </div>
+        <br>
+
+        <div class="scrollbox">
+            <div class="scrollbox-inner">
+
+                <h2>PLACES</h2>
+
+                <details>
+                    <summary>
+                        <span class="symbol">+</span>
+                        <span>WORKBENCHES</span>
+                        <input type="checkbox" id="workbench_checkbox" checked>
+                    </summary>
+
+                    <br>
+                    <label class="category-label">
+                        <img src="images/workshop/forge.png" alt="Arrow" class="category-icon">
+                        <span>Forge</span>
+                        <input type="checkbox" id="workbench_forge" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/workshop/anvil.png" alt="Arrow" class="category-icon">
+                        <span>Anvil</span>
+                        <input type="checkbox" id="workbench_anvil" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/workshop/crafting.png" alt="Arrow" class="category-icon">
+                        <span>Carpenters' Workbench</span>
+                        <input type="checkbox" id="workbench_crafting" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/workshop/cooking.png" alt="Arrow" class="category-icon">
+                        <span>Cooking</span>
+                        <input type="checkbox" id="workbench_cooking" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/workshop/tailor.png" alt="Arrow" class="category-icon">
+                        <span>Tailor Workbench</span>
+                        <input type="checkbox" id="workbench_tailor" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/workshop/alchemy.png" alt="Arrow" class="category-icon">
+                        <span>Alchemy Workbench</span>
+                        <input type="checkbox" id="workbench_alchemy" checked>
+                    </label>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="symbol">+</span>
+                        <span>STORES</span>
+                        <input type="checkbox" id="store_checkbox" checked>
+                    </summary><br>
+                    <label class="category-label">
+                        <img src="images/store/general.png" alt="Arrow" class="category-icon">
+                        <span>General</span>
+                        <input type="checkbox" id="store_general" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/weapon.png" alt="Arrow" class="category-icon">
+                        <span>Weapon</span>
+                        <input type="checkbox" id="store_weapon" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/archery.png" alt="Arrow" class="category-icon">
+                        <span>Archery</span>
+                        <input type="checkbox" id="store_archery" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/armor.png" alt="Arrow" class="category-icon">
+                        <span>Armor</span>
+                        <input type="checkbox" id="store_armor" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/blacksmith.png" alt="Arrow" class="category-icon">
+                        <span>Blacksmith</span>
+                        <input type="checkbox" id="store_blacksmith" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/magic.png" alt="Arrow" class="category-icon">
+                        <span>Magic</span>
+                        <input type="checkbox" id="store_magic" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/alchemist.png" alt="Arrow" class="category-icon">
+                        <span>Alchemist</span>
+                        <input type="checkbox" id="store_alchemist" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/herbalist.png" alt="Arrow" class="category-icon">
+                        <span>Herbalist</span>
+                        <input type="checkbox" id="store_herbalist" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/tailor.png" alt="Arrow" class="category-icon">
+                        <span>Tailor</span>
+                        <input type="checkbox" id="store_tailor" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/hunter.png" alt="Arrow" class="category-icon">
+                        <span>Hunter</span>
+                        <input type="checkbox" id="store_hunter" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/fishermen.png" alt="Arrow" class="category-icon">
+                        <span>Fishermen</span>
+                        <input type="checkbox" id="store_fishermen" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/jeweler.png" alt="Arrow" class="category-icon">
+                        <span>Jeweler</span>
+                        <input type="checkbox" id="store_jeweler" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/furnature.png" alt="Arrow" class="category-icon">
+                        <span>Furnature</span>
+                        <input type="checkbox" id="store_furnature" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/tavern.png" alt="Arrow" class="category-icon">
+                        <span>Tavern</span>
+                        <input type="checkbox" id="store_tavern" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/store/grocery.png" alt="Arrow" class="category-icon">
+                        <span>Grocery</span>
+                        <input type="checkbox" id="store_grocery" checked>
+                    </label>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="symbol">+</span>
+                        <span>SERVICES</span>
+                        <input type="checkbox" id="service_checkbox" checked>
+                    </summary><br>
+                    <label class="category-label">
+                        <img src="images/service/bank.png" alt="Arrow" class="category-icon">
+                        <span>Bank</span>
+                        <input type="checkbox" id="service_bank" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/service/fasttravel.png" alt="Arrow" class="category-icon">
+                        <span>Fast Travel</span>
+                        <input type="checkbox" id="service_fasttravel" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/service/trainer.png" alt="Arrow" class="category-icon">
+                        <span>Trainer</span>
+                        <input type="checkbox" id="service_trainer" checked>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/service/house.png" alt="Arrow" class="category-icon">
+                        <span>House</span>
+                        <input type="checkbox" id="service_house">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/service/well.png" alt="Arrow" class="category-icon">
+                        <span>Well</span>
+                        <input type="checkbox" id="service_well">
+                    </label>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="symbol">+</span>
+                        <span>CAVES & DUNGEONS</span>
+                        <input type="checkbox" id="entrance_checkbox">
+                    </summary><br>
+                    <label class="category-label">
+                        <img src="images/entrance/cave.png" alt="Arrow" class="category-icon">
+                        <span>Cave</span>
+                        <input type="checkbox" id="entrance_cave">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/entrance/cave.png" alt="Arrow" class="category-icon">
+                        <span>Dungeon</span>
+                        <input type="checkbox" id="entrance_dungeon">
+                    </label>
+                </details>
+
+                <h2>RESOURCES</h2>
+
+                <details>
+                    <summary>
+                        <span class="symbol">+</span>
+                        <span>WOOD</span>
+                        <input type="checkbox" id="wood_checkbox">
+                    </summary><br>
+                    <label class="category-label">
+                        <img src="images/resource/wood_spruce.png" alt="Arrow" class="category-icon">
+                        <span>Spruce</span>
+                        <input type="checkbox" id="wood_spruce">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/wood_glowingwillow.png" alt="Arrow" class="category-icon">
+                        <span>Glowing Willow</span>
+                        <input type="checkbox" id="wood_glowingwillow">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/wood_wildsfir.png" alt="Arrow" class="category-icon">
+                        <span>Wildsfir</span>
+                        <input type="checkbox" id="wood_wildsfir" d>
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/wood_oak.png" alt="Arrow" class="category-icon">
+                        <span>Oak</span>
+                        <input type="checkbox" id="wood_oak" d>
+                    </label>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="symbol">+</span>
+                        <span>ORE</span>
+                        <input type="checkbox" id="ore_checkbox">
+                    </summary><br>
+                    <label class="category-label">
+                        <img src="images/resource/ore_copper.png" alt="Arrow" class="category-icon">
+                        <span>Copper Ore</span>
+                        <input type="checkbox" id="ore_copper">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/ore_iron.png" alt="Arrow" class="category-icon">
+                        <span>Iron Ore</span>
+                        <input type="checkbox" id="ore_iron">
+                    </label>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="symbol">+</span>
+                        <span>FISH</span>
+                        <input type="checkbox" id="fish_checkbox">
+                    </summary><br>
+                    <label class="category-label">
+                        <img src="images/resource/fish_goopy.png" alt="Arrow" class="category-icon">
+                        <span>Wild Goopy</span>
+                        <input type="checkbox" id="fish_goopy">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/fish_pebble.png" alt="Arrow" class="category-icon">
+                        <span>Pebble Sturgeon</span>
+                        <input type="checkbox" id="fish_pebble">
+                    </label>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="symbol">+</span>
+                        <span>CROPS</span>
+                        <input type="checkbox" id="crop_checkbox">
+                    </summary><br>
+                    <label class="category-label">
+                        <img src="images/resource/crop_cabbage.png" alt="Arrow" class="category-icon">
+                        <span>Cabbage</span>
+                        <input type="checkbox" id="crop_cabbage">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/crop_carrot.png" alt="Arrow" class="category-icon">
+                        <span>Carrot</span>
+                        <input type="checkbox" id="crop_carrot">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/crop_corn.png" alt="Arrow" class="category-icon">
+                        <span>Corn</span>
+                        <input type="checkbox" id="crop_corn">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/crop_potato.png" alt="Arrow" class="category-icon">
+                        <span>Potato</span>
+                        <input type="checkbox" id="crop_potato">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/crop_barley.png" alt="Arrow" class="category-icon">
+                        <span>Barley</span>
+                        <input type="checkbox" id="crop_barley">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/food_egg.png" alt="Arrow" class="category-icon">
+                        <span>Egg</span>
+                        <input type="checkbox" id="crop_egg">
+                    </label>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="symbol">+</span>
+                        <span>HERBS</span>
+                        <input type="checkbox" id="herb_checkbox">
+                    </summary><br>
+                    <label class="category-label">
+                        <img src="images/resource/herb_dandelions.png" alt="Arrow" class="category-icon">
+                        <span>Dandelions</span>
+                        <input type="checkbox" id="herb_dandelion">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/herb_redberry.png" alt="Arrow" class="category-icon">
+                        <span>Redberries</span>
+                        <input type="checkbox" id="herb_redberry">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/herb_blueberry.png" alt="Arrow" class="category-icon">
+                        <span>Blueberries</span>
+                        <input type="checkbox" id="herb_blueberry">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/resource/herb_firestick.png" alt="Arrow" class="category-icon">
+                        <span>Firestick Plant</span>
+                        <input type="checkbox" id="herb_firestick">
+                    </label>
+                </details>
+
+                <h2>CREATURES</h2>
+
+                <details>
+                    <summary>
+                        <span class="symbol">+</span>
+                        <span>ANIMALS</span>
+                        <input type="checkbox" id="animal_checkbox">
+                    </summary><br>
+                    <label class="category-label">
+                        <img src="images/animals/animal_chicken.png" alt="Arrow" class="category-icon">
+                        <span>Chicken</span>
+                        <input type="checkbox" id="animal_chicken">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_rabbit.png" alt="Arrow" class="category-icon">
+                        <span>Rabbit</span>
+                        <input type="checkbox" id="animal_rabbit">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_sheep.png" alt="Arrow" class="category-icon">
+                        <span>Sheep</span>
+                        <input type="checkbox" id="animal_sheep">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_woolysheep.png" alt="Arrow" class="category-icon">
+                        <span>Wooly Sheep</span>
+                        <input type="checkbox" id="animal_woolysheep">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_cow.png" alt="Arrow" class="category-icon">
+                        <span>Cow</span>
+                        <input type="checkbox" id="animal_cow">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_deer.png" alt="Arrow" class="category-icon">
+                        <span>Deer</span>
+                        <input type="checkbox" id="animal_deer">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_fox.png" alt="Arrow" class="category-icon">
+                        <span>Fox</span>
+                        <input type="checkbox" id="animal_fox">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_crab.png" alt="Arrow" class="category-icon">
+                        <span>Crab</span>
+                        <input type="checkbox" id="animal_crab">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_frog.png" alt="Arrow" class="category-icon">
+                        <span>Frog</span>
+                        <input type="checkbox" id="animal_frog">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_snail.png" alt="Arrow" class="category-icon">
+                        <span>Snail</span>
+                        <input type="checkbox" id="animal_snail">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_snake.png" alt="Arrow" class="category-icon">
+                        <span>Snake</span>
+                        <input type="checkbox" id="animal_snake">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_spider.png" alt="Arrow" class="category-icon">
+                        <span>Spider</span>
+                        <input type="checkbox" id="animal_spider">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_giantrat.png" alt="Arrow" class="category-icon">
+                        <span>Giant Rat</span>
+                        <input type="checkbox" id="animal_giantrat">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_wolf.png" alt="Arrow" class="category-icon">
+                        <span>Wolf</span>
+                        <input type="checkbox" id="animal_wolf">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_bear.png" alt="Arrow" class="category-icon">
+                        <span>Bear</span>
+                        <input type="checkbox" id="animal_bear">
+                    </label>
+                    <label class="category-label">
+                        <img src="images/animals/animal_evergreen.png" alt="Arrow" class="category-icon">
+                        <span>Evergreen</span>
+                        <input type="checkbox" id="animal_evergreen">
+                    </label>
+                </details>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="coordBox"></div>
+
+    <script src="leaflet/leaflet.js"></script>
+    <script src="leaflet/SmoothWheelZoom.js"></script>
+    <script src="script.js"></script>
+    <script src="markers.js"></script>
+
+    </script>
+</body>
+
+</html>
